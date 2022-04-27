@@ -1,6 +1,7 @@
 declare namespace IUser {
     interface UserInfo {
-        userId: string
+        userId: string;
+        nickName: string;
     }
 
 }

@@ -6,7 +6,7 @@ Mock.mock(/\/api\/user\/info/, 'post', function () {
         "message": "",
         "data": {
             userId: 1,
-            nickName: '拉灰Larry'
+            nickName: 'Larry123123'
         }
     })
 })
