@@ -1,11 +1,13 @@
 import React, {useState} from "react";
 import PageContainer from "../../components/PageContainer";
-import TaskGroups from "../../components/TaskGroups";
 import styled from "styled-components";
-import Search from "../../components/styled/Search";
+import TaskGroups from "./TaskGroups";
 
 const TaskGroupsWarp = styled.div`
-  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  width: 214px;
 `
 
 const MissionWarp = styled.div`
@@ -18,11 +20,9 @@ const Mission = () => {
         <PageContainer>
             <MissionWarp>
                 <TaskGroupsWarp>
-                    <TaskGroups/>
+                    <TaskGroups />
                 </TaskGroupsWarp>
-
             </MissionWarp>
-
         </PageContainer>
     );
 }

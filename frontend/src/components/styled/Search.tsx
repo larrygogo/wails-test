@@ -2,18 +2,56 @@ import styled from "styled-components";
 import {HTMLAttributes} from "react";
 import React from "react";
 
+type IProps = {
+    showIcon?: boolean;
+    block?: boolean;
+} & HTMLAttributes<HTMLInputElement>
+
+
 const SearchInput = styled.input`
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.08);
   height: 32px;
   border: none;
-  padding: 6px 16px;
+  padding: ${(props: IProps) => props.showIcon ? '6px 16px 6px 44px' : '6px 16px' };
+  width: ${(props: IProps) => props.block ? '100%' : ''};
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px rgb(52, 182, 158);
+  }
+`
+
+const SearchInputWarp = styled.div`
+  position: relative;
+  margin-bottom: 10px;
+  width: ${(props: IProps) => props.block ? '100%' : ''};
+`
+
+const SearchIcon = () => <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+        d="M17.2658 17.2656C17.1927 17.3399 17.1056 17.3988 17.0094 17.439C16.9133 17.4793 16.8102 17.5 16.706 17.5C16.6018 17.5 16.4987 17.4793 16.4026 17.439C16.3064 17.3988 16.2193 17.3399 16.1462 17.2656L13.9062 15.0325C13.8275 14.9601 13.7642 14.8726 13.7202 14.7752C13.6762 14.6778 13.6523 14.5726 13.6501 14.4657C13.6478 14.3588 13.6672 14.2526 13.707 14.1534C13.7468 14.0543 13.8063 13.9642 13.8819 13.8886C13.9574 13.813 14.0475 13.7534 14.1466 13.7135C14.2458 13.6736 14.352 13.6542 14.4588 13.6564C14.5657 13.6586 14.671 13.6824 14.7684 13.7263C14.8659 13.7702 14.9534 13.8334 15.0258 13.9121L17.2658 16.1452C17.3394 16.2188 17.3978 16.3061 17.4377 16.4022C17.4775 16.4984 17.498 16.6014 17.498 16.7054C17.498 16.8095 17.4775 16.9125 17.4377 17.0086C17.3978 17.1048 17.3394 17.1921 17.2658 17.2656V17.2656ZM8.72946 15.2078C7.44814 15.2078 6.19559 14.8278 5.13021 14.1159C4.06483 13.4041 3.23447 12.3923 2.74412 11.2085C2.25378 10.0247 2.12549 8.72209 2.37546 7.46539C2.62544 6.20869 3.24245 5.05433 4.14848 4.1483C5.05452 3.24227 6.20887 2.62525 7.46557 2.37528C8.72228 2.1253 10.0249 2.2536 11.2087 2.74394C12.3925 3.23428 13.4043 4.06465 14.1161 5.13003C14.828 6.19541 15.2079 7.44796 15.2079 8.72928C15.2079 10.4475 14.5254 12.0953 13.3104 13.3103C12.0955 14.5252 10.4477 15.2078 8.72946 15.2078V15.2078ZM8.72946 3.77515C7.74963 3.77515 6.7918 4.0657 5.97709 4.61007C5.16239 5.15444 4.52741 5.92817 4.15244 6.83342C3.77747 7.73866 3.67936 8.73478 3.87052 9.69578C4.06168 10.6568 4.53351 11.5395 5.22636 12.2324C5.91921 12.9252 6.80195 13.3971 7.76296 13.5882C8.72397 13.7794 9.72008 13.6813 10.6253 13.3063C11.5306 12.9313 12.3043 12.2964 12.8487 11.4817C13.393 10.6669 13.6836 9.70912 13.6836 8.72928C13.6836 8.07869 13.5555 7.43448 13.3065 6.83342C13.0575 6.23235 12.6926 5.68621 12.2326 5.22618C11.7725 4.76614 11.2264 4.40123 10.6253 4.15226C10.0243 3.90329 9.38005 3.77515 8.72946 3.77515V3.77515Z"
+        fill="white" fill-opacity="0.2"/>
+</svg>
+
+const SearchIconWarp = styled.div`
+  display: ${(props: IProps) => props.showIcon ? 'block' : 'none'};
+  position: absolute;
+  left: 16px;
+  top: 6px;
 `
 
 
 
-const Search = (props: HTMLAttributes<HTMLInputElement>) => {
-    return <SearchInput {...props} data-wails-no-drag />
+const Search: React.FC<IProps> = (props ) => {
+    return (
+        <SearchInputWarp {...props} data-wails-no-drag>
+            <SearchIconWarp {...props}>
+                <SearchIcon/>
+            </SearchIconWarp>
+            <SearchInput {...props} />
+        </SearchInputWarp>
+    )
 }
 
 export default Search;
