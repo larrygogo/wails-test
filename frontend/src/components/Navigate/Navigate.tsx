@@ -5,7 +5,7 @@ import {useLocation} from "react-router";
 import styled from "styled-components";
 import Logo from "./Logo";
 import MenuList from "./MenuList";
-import UserBar from "./userbar/UserBar";
+import UserBar from "./UserBar";
 
 const NavigateWarp = styled.div`
   position: relative;

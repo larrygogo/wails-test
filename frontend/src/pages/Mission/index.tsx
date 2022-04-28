@@ -1,29 +1,28 @@
 import React, {useState} from "react";
-import {Link} from "react-router-dom";
 import PageContainer from "../../components/PageContainer";
-import styles from './index.module.less'
+import TaskGroups from "../../components/TaskGroups";
+import styled from "styled-components";
+import Search from "../../components/styled/Search";
 
+const TaskGroupsWarp = styled.div`
+  padding-left: 20px;
+`
+
+const MissionWarp = styled.div`
+  display: flex;
+`
 
 const Mission = () => {
-    const [result, setResult] = useState('Please enter your name below 👇');
-    const [name, setName] = useState('');
-    const [title, setTitle] = useState('');
-
-    const greet = () => {
-        window.go.main.App.Greet(name).then((result) => {
-            setResult(result);
-        });
-    };
-
-    const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-        setName(event.target?.value);
-    };
 
     return (
         <PageContainer>
-            <div>
+            <MissionWarp>
+                <TaskGroupsWarp>
+                    <TaskGroups/>
+                </TaskGroupsWarp>
 
-            </div>
+            </MissionWarp>
+
         </PageContainer>
     );
 }
