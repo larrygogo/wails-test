@@ -16,13 +16,13 @@ const MenuIcon = styled.div`
   margin-right: 8px;
   font-size: 20px;
   transition: color .2s;
-  color: ${(props: IProps) => props.active ? 'rgb(52, 182, 158)' : ''};
+  color: ${(props: IProps) => props.active ? 'rgb(52, 182, 158)' : 'rgba(255, 255, 255, 0.4)'};
 `
 
 const MenuTitle = styled.div`
   font-size: 14px;
   transition: color .2s;
-  color: ${(props: IProps) => props.active ? 'rgb(52, 182, 158)' : ''};
+  color: ${(props: IProps) => props.active ? 'rgb(52, 182, 158)' : 'rgba(255, 255, 255, 0.4)'};
 `
 
 

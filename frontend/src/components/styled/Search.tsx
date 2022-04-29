@@ -5,6 +5,7 @@ import React from "react";
 type IProps = {
     showIcon?: boolean;
     block?: boolean;
+    width?: number;
 } & HTMLAttributes<HTMLInputElement>
 
 
@@ -14,7 +15,7 @@ const SearchInput = styled.input`
   height: 32px;
   border: none;
   padding: ${(props: IProps) => props.showIcon ? '6px 16px 6px 44px' : '6px 16px' };
-  width: ${(props: IProps) => props.block ? '100%' : ''};
+  width: ${(props: IProps) => props.block ? '100%' : props.width ? `${props.width}px` : ''};
 
   &:focus {
     outline: none;
